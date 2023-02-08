@@ -1,0 +1,24 @@
+import requests
+import json
+
+class Maw:
+	base_url='https://api.myanimelist.net/v2'
+	async def anime_list(user, act):
+		#print(act)
+		#print(user)
+		url=f'{Maw.base_url}/users/{user}/animelist?offset=0&limit=300'
+		header={"Authorization": f"Bearer {act}"}
+		data={"sort":"list_score"}
+		resp=requests.get(url=url, headers=header)
+		#print(resp.text)
+		return resp.text
+	async def manga_list(user, act):
+		url=f'{Maw.base_url}/users/{user}/mangalist?offset=0&limit=1'
+		header={"Authorization": f"Bearer {act}"}
+		data={"sort":"list_score"}
+		resp=requests.get(url=url, headers=header)
+		#print(resp.text)
+		return resp.text
+#token="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlkOTk4NmE2MjQ0MWIyN2Q1ODZmMGI5Zjk5NjUxOGZiN2UyYTYwYjc5OTQ2Nzc1MzliZTRkNGYwY2I1OWVkMmRiNmM0M2M3YmZiY2MwMDg0In0.eyJhdWQiOiI4YjRjZTkzZWVhMjE1OGMxNWZkNDU4MTJlZThmMDFjNSIsImp0aSI6IjlkOTk4NmE2MjQ0MWIyN2Q1ODZmMGI5Zjk5NjUxOGZiN2UyYTYwYjc5OTQ2Nzc1MzliZTRkNGYwY2I1OWVkMmRiNmM0M2M3YmZiY2MwMDg0IiwiaWF0IjoxNjIzMzQyNjIxLCJuYmYiOjE2MjMzNDI2MjEsImV4cCI6MTYyNTkzNDYyMSwic3ViIjoiMTEzNDA4NTkiLCJzY29wZXMiOltdfQ.onERETY6P7V8KdCMvC0Bu2iG76a2q7EBkHuOOMnDU_aNKhofRm8E0X-3TJW6W7XCVh63EMu-r73K3pblCEPY8H8GjDEmIMxNEv6Kh1MP46yNycWjcfQpSvav5oGsMMheoqvO7RP-1zOme9PXJLjBOysyivDBCpkcK65HQQNTcooChBRAcx1778ayD2YgdtYykqw5ALmDknjAP2UYiDPkYxy_35ZPpFO8afO1QbTxdtkhBoxYeekteD_9vxNztOVNuvaBm41Jj-0krBMgeX2ZDUDDq275jkFyv2N3Y4vWM2gfRY2PB8B2QoTOPzqP5lfI7xuDQQAZKKN0xtwuX9s-Lg"
+#Maw.anime_list('ZeroCrystal', 4 ,"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjEzNTVjMjI3MGZhMmJkNjU2ZTMzNjdiZDNjNTRmMzlmOWJmMTgyZWFjMTgxYThlOWFkNzdlODk5NjNkOTMzYTlkNDUwNDk4YjUxMWQ4OWE1In0.eyJhdWQiOiI4YjRjZTkzZWVhMjE1OGMxNWZkNDU4MTJlZThmMDFjNSIsImp0aSI6IjEzNTVjMjI3MGZhMmJkNjU2ZTMzNjdiZDNjNTRmMzlmOWJmMTgyZWFjMTgxYThlOWFkNzdlODk5NjNkOTMzYTlkNDUwNDk4YjUxMWQ4OWE1IiwiaWF0IjoxNjIzMzIwODI5LCJuYmYiOjE2MjMzMjA4MjksImV4cCI6MTYyNTkxMjgyOSwic3ViIjoiMTEzNDA4NTkiLCJzY29wZXMiOltdfQ.MVX2tXRosrD4SJo-lzfeiA6ZKaHberIC1WQE_7TDvymdLebOcXR4STsVSy4YOwz36QYxucQyFEya80FBueCf4vxS-O1_s5zYv0bTTdZ3QX7x5Tz0cihkIPczUeGbuEXO4uMzcBmy8XCJYHXqY8kzmj1UXpKoa3miLLZz1x-keNojAqwNSOK2PexZonKJLhvnevPA4dIF0vWq3gXBhWo8mKBkpPsyWiXB-7f8AS2J0zoICtHpS1hgZLiBlQKIKkZzx7qkVldsCu4B5rpWvidEP4xYY0LGmn9Einp9gc-PCYUM7dLmyDKxVgqnM-twRG8PQru6hlZ8dV79PnPUXgOCaw")
+#Maw.anime_list('rem', token)
