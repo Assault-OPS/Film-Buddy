@@ -38,7 +38,7 @@ async def lang_gen(code):
     if data.get(code) is not None: return data.get(code).get("name")
 
 firebaseConfig = {
-# CLASSIFIED
+# CLASSIFIED 2
   }
 firebase = pyrebase.initialize_app(firebaseConfig)
 db = firebase.database()
